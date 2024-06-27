@@ -1,0 +1,30 @@
+# Code to extract data from Charity Navigator API
+POST https://data.charitynavigator.org
+Content-Type: application/json
+Stellate-Api-Token: stl8_dade875d8f6d7f8491d00fdebc45906d55b0bb84588546f9ea4b2f36b15aa1bb
+
+{
+  "query": "query PublicSearchFaceted($term: String!) {
+    publicSearchFaceted(term: $term) {
+      size
+      from
+      term
+      result_count
+      results {
+        ein
+        name
+        mission
+        organization_url
+        encompass_score
+        encompass_star_rating
+        cause
+        city
+        state
+        country
+      }
+    }
+  }",
+  "variables": {
+    "term": "health"
+  }
+}
